@@ -3,8 +3,8 @@ Atheros Bluetooth Firmware Uploader
 It uploads the firmware into the bluetooth device, so Apple Generic Bluetooth drivers can drive this device. 
 
 It was created by the mac4mat from tonymacx86, but had some issues with the bluetooth during System shutdown, restart and wakeup from sleep. The problem is the device gets disconnected. 
-     So, I gone through the code and kernel log for finding the cause and it turns out that this uploader kext is uploading the firmware for every enable of the device, but the device needs the firmware to be uploaded only once after the system start.
+	So, I gone through the code and kernel log for finding the cause and it turns out that this uploader kext is uploading the firmware for every enable of the device, but the device needs the firmware to be uploaded only once after the system start.
 
- I tried to fix this issue of uploading the firmware to be once as far as I know and I got the solution which is making use of the Interrupts received from the Apple Bluetooth driver during system startup. 
+ 	I tried to fix this issue of uploading the firmware to be once as far as I know and I got the solution which is making use of the Interrupts received from the Apple Bluetooth driver during system startup. 
 
 My solution works only with Apple Bluetooth driver version 4.0.7 only which is from Lion, and this driver got updated to 4.0.9 in Mountain Lion which has different way of sending the interrupts than before so it won't work and I need to look an alternative for this in future.

@@ -101,8 +101,6 @@ local_IOath3kfrmwr::start(IOService *provider)
     if (err)
     {
         DEBUG_LOG("%s(%p)::start - failed to reset the device\n", getName(), this);
-        pUsbDev->close(this);
-        return false;
     } else IOLog("%s(%p)::start: device reset\n", getName(), this);
     
     // 0.3 Find the first config/interface
